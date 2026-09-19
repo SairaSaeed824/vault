@@ -28,6 +28,7 @@
 <div class="modal-actions"><button id="cancel" class="secondary">Cancel</button><button id="save" class="primary">Save</button></div>
 </div></div>
 <script>
+const VAULT_VERSION="2026-09-19-only4";
 const seed=[
 {title:"Dynamic Memory",category:"C++ / Memory",explanation:"Dynamic memory is memory allocated while the program is running. In C++, new creates an object in dynamically allocated memory and returns its address. A pointer stores that address. delete releases memory allocated with new.",points:["new → allocates memory and returns an address.","A pointer stores that address.","*p accesses the value at that address.","delete releases dynamically allocated memory.","nullptr makes a pointer point to nothing."],code:"int *p = new int(10);\ncout << *p; // 10\ndelete p;\np = nullptr;"},
 {title:"Memory Leak",category:"C++ / Memory",explanation:"A memory leak happens when dynamically allocated memory is still reserved, but the program loses the pointer needed to release it. The memory remains occupied and cannot be freed through that lost pointer.",points:["Memory is still allocated.","The pointer/address is lost.","The program cannot call delete on that allocation.","Repeated leaks can waste memory.","Do not lose the only pointer before deleting the memory."],code:"int *p = new int(10);\np = nullptr; // old address lost → memory leak\n\n// Correct:\nint *q = new int(10);\ndelete q;\nq = nullptr;"},

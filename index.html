@@ -9,12 +9,12 @@
 <title>Concept Vault</title>
 <link rel="manifest" href="./manifest.json">
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f7f7fb;color:#17152d}button,input,textarea,select{font:inherit}.app{max-width:900px;margin:auto;padding:18px}.hero{background:linear-gradient(135deg,#17152d,#6c4ab6);color:#fff;border-radius:28px;padding:24px;margin-bottom:16px;box-shadow:0 12px 30px #17152d22}.hero h1{margin:0 0 6px;font-size:30px}.hero p{margin:0;opacity:.85}.search{width:100%;padding:14px 16px;border:0;border-radius:16px;margin-top:18px;outline:none}.chips{display:flex;gap:8px;overflow:auto;padding:4px 0 14px}.chip{border:1px solid #ddd8ee;background:#fff;border-radius:999px;padding:9px 14px;white-space:nowrap}.chip.active{background:#17152d;color:#fff}.grid{display:grid;gap:14px}.card{background:#fff;border:1px solid #eceaf2;border-radius:20px;padding:18px;box-shadow:0 6px 18px #17152d0b}.card h2{margin:0 0 8px;font-size:20px}.tag{font-size:12px;background:#eeeafa;padding:5px 9px;border-radius:999px}.card p{line-height:1.55;color:#4d4a59}.code{background:#17152d;color:#fff;border-radius:12px;padding:13px;overflow:auto;font-size:13px;white-space:pre-wrap}.actions{display:flex;gap:8px;margin-top:12px}.actions button{border:0;border-radius:10px;padding:9px 12px}.fab{position:fixed;right:22px;bottom:22px;width:58px;height:58px;border:0;border-radius:50%;background:#17152d;color:#fff;font-size:28px;box-shadow:0 8px 24px #17152d44}.empty{text-align:center;padding:40px;color:#777}.overlay{display:none;position:fixed;inset:0;background:#0008;align-items:flex-end;justify-content:center;z-index:5}.overlay.show{display:flex}.modal{background:#fff;width:100%;max-width:650px;border-radius:26px 26px 0 0;padding:20px;max-height:90vh;overflow:auto}.modal h2{margin-top:0}.field{display:block;margin:12px 0}.field span{display:block;font-size:13px;margin-bottom:6px}.field input,.field textarea,.field select{width:100%;padding:12px;border:1px solid #ddd;border-radius:12px}.field textarea{min-height:100px}.modal-actions{display:flex;gap:10px}.modal-actions button{flex:1;padding:13px;border:0;border-radius:12px}.primary{background:#17152d;color:#fff}.secondary{background:#eee}.toprow{display:flex;justify-content:space-between;align-items:center;gap:10px}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f7f7fb;color:#17152d}button,input,textarea,select{font:inherit}.app{max-width:900px;margin:auto;padding:18px}.hero{background:linear-gradient(135deg,#17152d,#6c4ab6);color:#fff;border-radius:28px;padding:24px;margin-bottom:16px;box-shadow:0 12px 30px #17152d22}.hero h1{margin:0 0 6px;font-size:30px}.hero p{margin:0;opacity:.85}.search{width:100%;padding:14px 16px;border:0;border-radius:16px;margin-top:18px;outline:none}.chips{display:flex;gap:8px;overflow:auto;padding:4px 0 14px}.chip{border:1px solid #ddd8ee;background:#fff;border-radius:999px;padding:9px 14px;white-space:nowrap}.chip.active{background:#17152d;color:#fff}.grid{display:grid;gap:14px}.card{background:#fff;border:1px solid #eceaf2;border-radius:20px;padding:18px;box-shadow:0 6px 18px #17152d0b}.card h2{margin:0 0 8px;font-size:20px}.tag{font-size:12px;background:#eeeafa;padding:5px 9px;border-radius:999px}.card p{line-height:1.55;color:#4d4a59}.card ul{line-height:1.55;color:#4d4a59}.code{background:#17152d;color:#fff;border-radius:12px;padding:13px;overflow:auto;font-size:13px;white-space:pre-wrap}.actions{display:flex;gap:8px;margin-top:12px}.actions button{border:0;border-radius:10px;padding:9px 12px}.fab{position:fixed;right:22px;bottom:22px;width:58px;height:58px;border:0;border-radius:50%;background:#17152d;color:#fff;font-size:28px;box-shadow:0 8px 24px #17152d44}.empty{text-align:center;padding:40px;color:#777}.overlay{display:none;position:fixed;inset:0;background:#0008;align-items:flex-end;justify-content:center;z-index:5}.overlay.show{display:flex}.modal{background:#fff;width:100%;max-width:650px;border-radius:26px 26px 0 0;padding:20px;max-height:90vh;overflow:auto}.modal h2{margin-top:0}.field{display:block;margin:12px 0}.field span{display:block;font-size:13px;margin-bottom:6px}.field input,.field textarea,.field select{width:100%;padding:12px;border:1px solid #ddd;border-radius:12px}.field textarea{min-height:100px}.modal-actions{display:flex;gap:10px}.modal-actions button{flex:1;padding:13px;border:0;border-radius:12px}.primary{background:#17152d;color:#fff}.secondary{background:#eee}.toprow{display:flex;justify-content:space-between;align-items:center;gap:10px}
 </style>
 </head>
 <body>
 <div class="app">
-<section class="hero"><div class="toprow"><div><h1>📚 Concept Vault</h1><p>Your personal programming concept library</p></div></div><input id="search" class="search" placeholder="Search concepts..."></section>
+<section class="hero"><div class="toprow"><div><h1>📚 Concept Vault</h1><p>Your personal programming + interview learning library</p></div></div><input id="search" class="search" placeholder="Search concepts or interview topics..."></section>
 <div id="chips" class="chips"></div>
 <main id="grid" class="grid"></main>
 </div>
@@ -22,35 +22,45 @@
 <div id="overlay" class="overlay"><div class="modal">
 <h2 id="modalTitle">Add Concept</h2>
 <label class="field"><span>Title</span><input id="title"></label>
-<label class="field"><span>Category</span><input id="category" placeholder="C++, DSA, Python..."></label>
+<label class="field"><span>Category</span><input id="category" placeholder="C++, DSA, Interview Prep..."></label>
 <label class="field"><span>Explanation</span><textarea id="explanation"></textarea></label>
 <label class="field"><span>Code / Example</span><textarea id="code"></textarea></label>
 <div class="modal-actions"><button id="cancel" class="secondary">Cancel</button><button id="save" class="primary">Save</button></div>
 </div></div>
 <script>
 const seed=[
-{title:"Memory Leak vs Dangling Pointer",category:"C++",explanation:"A memory leak happens when dynamically allocated memory is no longer reachable and cannot be freed. A dangling pointer points to memory that has already been freed or is no longer valid.",code:"int *p=new int(5); delete p; p=nullptr;"},
-{title:"Pointer Arguments / Pass by Value",category:"C++",explanation:"When a pointer is passed by value, a copy of the pointer is received. Changing the pointer itself does not change the caller's pointer, but changing *pointer changes the pointed value.",code:"void change(int *p){ *p=10; }"},
-{title:"Pointer to Pointer",category:"C++",explanation:"A pointer to pointer stores the address of another pointer.",code:"int x=5; int *p=&x; int **pp=&p;"},
-{title:"References",category:"C++",explanation:"A reference is another name for an existing variable. It does not create a separate object.",code:"int x=5; int &r=x; r=10;"},
-{title:"Array Size vs Pointer Size",category:"C++",explanation:"sizeof(array) gives the total array storage when used where the array has not decayed. sizeof(pointer) gives the pointer's own storage size.",code:"int a[5]; int *p=a; sizeof(a); sizeof(p);"},
-{title:"Void Pointer vs NULL Pointer",category:"Pointers",explanation:"A void pointer can hold an address of any object type but must be converted before dereferencing. A null pointer points to no valid object.",code:"void *v=nullptr; int *p=nullptr;"},
-{title:"2D Array Mapping",category:"Arrays",explanation:"In row-major order, elements of each row are stored together. For a matrix with C columns, address offset is row*C+column.",code:"index=i*C+j;"},
-{title:"Call by Value vs Reference",category:"C++",explanation:"Call by value passes a copy, so changes do not affect the original variable. Call by reference lets the function modify the original.",code:"void f(int x){} void g(int &x){x++;}"},
-{title:"Exception Handling",category:"C++",explanation:"Exceptions let a program handle abnormal situations using try, throw and catch.",code:"try{ throw 5; } catch(int e){ /* handle */ }"},
-{title:"Stack",category:"DSA",explanation:"A stack follows LIFO: Last In, First Out. Main operations are push and pop.",code:"push(10); push(20); pop(); // 20"},
-{title:"Queue",category:"DSA",explanation:"A queue follows FIFO: First In, First Out. Main operations are enqueue and dequeue.",code:"enqueue(10); enqueue(20); dequeue(); // 10"},
-{title:"Fibonacci Series",category:"Programming",explanation:"Each Fibonacci number is the sum of the two previous numbers.",code:"0, 1, 1, 2, 3, 5, 8, ..."},
-{title:"Palindrome String",category:"Programming",explanation:"A string is a palindrome when it reads the same forward and backward.",code:"madam -> reverse is madam"},
-{title:"Armstrong Number",category:"Programming",explanation:"For an n-digit number, an Armstrong number equals the sum of its digits each raised to the nth power.",code:"153 = 1³ + 5³ + 3³"},
-{title:"Prime Number",category:"Programming",explanation:"A prime number has exactly two positive divisors: 1 and itself.",code:"2, 3, 5, 7, 11, ..."},
-{title:"Decimal to Binary",category:"Programming",explanation:"Repeatedly divide the decimal number by 2 and collect the remainders from bottom to top.",code:"10 -> 1010"}
+{title:"Memory Leak vs Dangling Pointer",category:"C++ / Memory",explanation:"MEMORY LEAK: dynamically allocated memory is still allocated, but the pointer/address to it is lost, so the program can no longer free it. DANGLING POINTER: memory has already been released, but the pointer still contains the old address. Dereferencing a dangling pointer gives undefined behavior. Safe cleanup is delete p; then p=nullptr.",code:"// Leak\nint *p=new int(10);\np=nullptr; // address lost, allocated memory remains\n\n// Dangling\nint *q=new int(10);\ndelete q;\ncout << *q; // undefined behavior\n\n// Safe\ndelete q;\nq=nullptr;"}, 
+{title:"Dynamic Memory",category:"C++ / Memory",explanation:"new creates an object dynamically and returns its address. A pointer stores that address. delete releases the dynamically allocated object. The value is not something you should think of as simply being erased; the important point is that the object is no longer valid for your program to use.",code:"int *p = new int(10);\ncout << p;  // address\ncout << *p; // 10\ndelete p;\np = nullptr;"}, 
+{title:"Pointer Basics: p vs *p vs &p",category:"Pointers",explanation:"p is the address stored in the pointer. *p accesses the value at that address. &x gets the address of x. &p gets the address of the pointer variable itself.",code:"int x=10;\nint *p=&x;\np   // address of x\n*p  // 10\n&x  // address of x\n&p  // address of p"}, 
+{title:"Pointer Arguments / Pass by Value",category:"C++ / Pointers",explanation:"A pointer passed to a function is itself passed by value by default: the function receives a copy of the address. Both pointer copies can point to the same original object. Therefore *p can change the original value, while changing p itself only changes the local pointer copy.",code:"void change(int *p){ *p=50; }\nint a=10;\nchange(&a);\ncout << a; // 50"}, 
+{title:"Pointer to Pointer",category:"C++ / Pointers",explanation:"A pointer to pointer stores the address of another pointer. int **pp means pp points to an int pointer. *pp gives the pointer p, while **pp gives the final int value.",code:"int x=5;\nint *p=&x;\nint **pp=&p;\n// *pp -> p\n// **pp -> 5"}, 
+{title:"References",category:"C++",explanation:"A reference is another name (alias) for an existing variable. Changing the reference changes the original variable.",code:"int x=5;\nint &r=x;\nr=10;\n// x is now 10"}, 
+{title:"Array Size vs Pointer Size",category:"C++",explanation:"sizeof(array) gives the total array storage when the array is still an array in that scope. sizeof(pointer) gives the size of the pointer variable itself.",code:"int a[5];\nint *p=a;\nsizeof(a); // total array bytes\nsizeof(p); // pointer bytes"}, 
+{title:"Void Pointer vs Null Pointer",category:"Pointers",explanation:"A void pointer can store the address of an object of different types, but it must be converted to the correct type before dereferencing. A null pointer points to no valid object. Prefer nullptr in modern C++.",code:"int x=5;\nvoid *v=&x;\nint *p=nullptr;"}, 
+{title:"2D Array Mapping",category:"Arrays",explanation:"In row-major storage, a 2D array is stored row by row. For a matrix with C columns, element [i][j] has 1D offset i*C+j.",code:"int index = i*C+j;"}, 
+{title:"Call by Value vs Call by Reference",category:"C++",explanation:"Call by value passes a copy, so changing the parameter does not change the original. Call by reference makes the parameter an alias for the original.",code:"void f(int x){x++;}\nvoid g(int &x){x++;}"}, 
+{title:"Exception Handling",category:"C++",explanation:"Exceptions handle abnormal situations using try, throw and catch. Code that may fail goes in try, throw signals the problem, and catch handles it.",code:"try { throw 5; }\ncatch(int e) { cout << e; }"}, 
+{title:"Stack",category:"DSA",explanation:"A stack follows LIFO: Last In, First Out. Main operations are push and pop.",code:"push(10); push(20); pop(); // 20"}, 
+{title:"Queue",category:"DSA",explanation:"A queue follows FIFO: First In, First Out. Main operations are enqueue and dequeue.",code:"enqueue(10); enqueue(20); dequeue(); // 10"}, 
+{title:"Fibonacci Series",category:"Programming",explanation:"Each Fibonacci number is the sum of the two previous numbers.",code:"0, 1, 1, 2, 3, 5, 8, ..."}, 
+{title:"Palindrome String",category:"Programming",explanation:"A string is a palindrome when it reads the same forward and backward.",code:"madam -> reverse is madam"}, 
+{title:"Armstrong Number",category:"Programming",explanation:"For an n-digit number, an Armstrong number equals the sum of its digits each raised to the nth power.",code:"153 = 1^3 + 5^3 + 3^3"}, 
+{title:"Prime Number",category:"Programming",explanation:"A prime number has exactly two positive divisors: 1 and itself.",code:"2, 3, 5, 7, 11, ..."}, 
+{title:"Decimal to Binary",category:"Programming",explanation:"Repeatedly divide the decimal number by 2 and collect remainders from bottom to top.",code:"10 -> 1010"},
+{title:"Day 1 — Interview Learning",category:"Interview Prep / Day 1",explanation:"Goal: build the basic interview foundation instead of only memorizing answers. Today focus on introducing yourself, explaining your projects clearly, and revising core programming concepts.",code:"DAY 1 CHECKLIST\n\n1. Self-introduction:\n• Name + degree/field\n• Current skills\n• Internship/project experience\n• What role you are learning for\n\n2. Project explanation:\n• Problem → solution → tech stack → your role → result\n• Be ready to explain one project in 30 seconds and 2 minutes.\n\n3. Core programming revision:\n• Variables and data types\n• Functions\n• Pointers and references\n• Arrays\n• OOP basics\n• Basic DSA\n\n4. Interview questions to practice:\n• Tell me about yourself.\n• Explain your main project.\n• What is the difference between a pointer and a reference?\n• What is pass by value vs pass by reference?\n• What is a memory leak?\n• What is a dangling pointer?\n• Explain stack vs queue.\n\n5. Rule for answering:\nFirst give the simple definition → then explain how it works → then give a small example.\n\n6. End-of-day task:\nExplain 5 concepts aloud without looking at notes. If you get stuck, write the missing point in the vault and revise it again."}
 ];
-let concepts=JSON.parse(localStorage.getItem("conceptVault")||"null")||seed;
-let editing=-1, currentCategory="All";
+
+let stored=JSON.parse(localStorage.getItem("conceptVault")||"null");
+let concepts=stored||seed;
+if(stored){
+  const existing=new Set(stored.map(x=>x.title));
+  const missing=seed.filter(x=>!existing.has(x.title));
+  if(missing.length){concepts=[...stored,...missing];localStorage.setItem("conceptVault",JSON.stringify(concepts));}
+}
+let editing=-1,currentCategory="All";
 const $=id=>document.getElementById(id);
 function cats(){return ["All",...new Set(concepts.map(x=>x.category).filter(Boolean))]}
-function renderChips(){ $("chips").innerHTML=cats().map(c=>'<button class="chip '+(c===currentCategory?'active':'')+'" onclick="setCat('+JSON.stringify(c)+')">'+c+'</button>').join("")}
+function renderChips(){$("chips").innerHTML=cats().map(c=>'<button class="chip '+(c===currentCategory?"active":"")+'" onclick="setCat('+JSON.stringify(c)+')">'+esc(c)+'</button>').join("")}
 function setCat(c){currentCategory=c;render();$("search").focus()}
 function render(){
  renderChips();
@@ -67,7 +77,7 @@ function deleteConcept(i){if(confirm("Delete this concept?")){concepts.splice(i,
 $("addBtn").onclick=()=>openModal();$("cancel").onclick=closeModal;
 $("save").onclick=()=>{let x={title:$("title").value.trim(),category:$("category").value.trim()||"General",explanation:$("explanation").value.trim(),code:$("code").value.trim()};if(!x.title){alert("Please enter a title.");return}if(editing<0)concepts.unshift(x);else concepts[editing]=x;closeModal();persist()};
 $("search").oninput=render;$("overlay").onclick=e=>{if(e.target===$("overlay"))closeModal()};
-if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+if("serviceWorker"in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
 render();
 </script>
 </body>

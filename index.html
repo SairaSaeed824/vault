@@ -29,6 +29,11 @@
 </div></div>
 <script>
 const seed=[
+
+{title:"Dynamic Memory",category:"C++ / Memory",explanation:"Dynamic memory is memory requested while the program is running. In C++, new allocates an object dynamically and returns its memory address. A pointer stores that address. delete releases memory that was allocated with new. After delete, the object is no longer valid to access.",code:"int *p = new int(10);\ncout << p;   // address of the allocated int\ncout << *p;  // 10\n\ndelete p;    // release the memory\np = nullptr; // pointer now points to nothing"}, 
+{title:"Memory Leak",category:"C++ / Memory",explanation:"A memory leak happens when dynamically allocated memory is still allocated, but the program loses the pointer/address needed to release it. The memory stays occupied until the program ends. If the lost memory keeps happening, the program can waste more and more memory.",code:"int *p = new int(10);\np = nullptr; // old address is lost\n// The allocated memory is still there, but we can no longer delete it through p.\n\n// Correct:\nint *q = new int(10);\ndelete q;\nq = nullptr;"}, 
+{title:"Dangling Pointer",category:"C++ / Memory",explanation:"A dangling pointer is a pointer that still stores an address of memory after that memory has been released or is no longer valid. The pointer itself still exists, but the object it used to point to does not. Dereferencing a dangling pointer causes undefined behavior.",code:"int *p = new int(10);\ndelete p;\n\n// p still contains the old address, but that memory is released.\ncout << *p; // WRONG: undefined behavior\n\n// Safer:\np = nullptr;"}, 
+{title:"Pointer Basics",category:"C++ / Pointers",explanation:"A pointer is a variable that stores the memory address of another variable. The main symbols to remember are: & gets an address, * declares a pointer or dereferences a pointer. p contains an address, while *p gives the value stored at that address.",code:"int x = 10;\nint *p = &x;\n\ncout << p;   // address of x\ncout << *p;  // 10\ncout << &x;  // address of x\n\n*p = 20;     // changes x to 20\ncout << x;   // 20\n\nMemory idea:\nx = value 10\np = address of x\n*p = value at p's address"}, 
  
  
  

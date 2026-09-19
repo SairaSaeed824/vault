@@ -1,0 +1,9 @@
+{
+  "name": "Concept Vault",
+  "short_name": "Concept Vault",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f7fb",
+  "theme_color": "#17152d",
+  "icons": []
+}
